@@ -174,7 +174,7 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,255,4,0.31416316526
                           <td>Posted on</td>
                       </tr>
                       <?php 
-                      	$sql = "SELECT * FROM job_offer WHERE e_username='$username' and valid=0 ORDER BY timestamp DESC";
+                      	$sql = "SELECT * FROM job_offer WHERE e_username='$username' and valid=0 ORDER BY deadline DESC";
 						$result = $conn->query($sql);
                       if ($result->num_rows > 0) {
                             // output data of each row
@@ -213,7 +213,7 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,255,4,0.31416316526
                           <td>Freelancer</td>
                       </tr>
                       <?php 
-                      	$sql = "SELECT * FROM job_offer,selected WHERE job_offer.job_id=selected.job_id AND selected.e_username='$username' AND selected.valid=1 ORDER BY job_offer.timestamp DESC";
+                      	$sql = "SELECT * FROM job_offer,selected WHERE job_offer.job_id=selected.job_id AND selected.e_username='$username' AND selected.valid=1 ORDER BY job_offer.deadline DESC";
 						$result = $conn->query($sql);
                       if ($result->num_rows > 0) {
                             // output data of each row
@@ -257,7 +257,7 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,255,4,0.31416316526
                           <td>Freelancer</td>
                       </tr>
                       <?php 
-                      	$sql = "SELECT * FROM job_offer,selected WHERE job_offer.job_id=selected.job_id AND selected.e_username='$username' AND selected.valid=0 ORDER BY job_offer.timestamp DESC";
+                      	$sql = "SELECT * FROM job_offer,selected WHERE job_offer.job_id=selected.job_id AND selected.e_username='$username' AND selected.valid=0 ORDER BY job_offer.deadline DESC";
 						$result = $conn->query($sql);
                       if ($result->num_rows > 0) {
                             // output data of each row
