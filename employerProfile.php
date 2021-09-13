@@ -46,7 +46,7 @@ $result = $conn->query($sql);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee Profile</title>
+    <title>Employer Profile</title>
     <link rel="stylesheet" type="text/css" href="dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
@@ -174,7 +174,7 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,255,4,0.31416316526
                           <td>Posted on</td>
                       </tr>
                       <?php 
-                      	$sql = "SELECT * FROM job_offer WHERE e_username='$username' and valid=0 ORDER BY timestamp DESC";
+                      	$sql = "SELECT * FROM job_offer WHERE e_username='$username' and valid=0 ORDER BY deadline DESC";
 						$result = $conn->query($sql);
                       if ($result->num_rows > 0) {
                             // output data of each row
@@ -213,7 +213,7 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,255,4,0.31416316526
                           <td>Freelancer</td>
                       </tr>
                       <?php 
-                      	$sql = "SELECT * FROM job_offer,selected WHERE job_offer.job_id=selected.job_id AND selected.e_username='$username' AND selected.valid=1 ORDER BY job_offer.timestamp DESC";
+                      	$sql = "SELECT * FROM job_offer,selected WHERE job_offer.job_id=selected.job_id AND selected.e_username='$username' AND selected.valid=1 ORDER BY job_offer.deadline DESC";
 						$result = $conn->query($sql);
                       if ($result->num_rows > 0) {
                             // output data of each row
@@ -257,7 +257,7 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,255,4,0.31416316526
                           <td>Freelancer</td>
                       </tr>
                       <?php 
-                      	$sql = "SELECT * FROM job_offer,selected WHERE job_offer.job_id=selected.job_id AND selected.e_username='$username' AND selected.valid=0 ORDER BY job_offer.timestamp DESC";
+                      	$sql = "SELECT * FROM job_offer,selected WHERE job_offer.job_id=selected.job_id AND selected.e_username='$username' AND selected.valid=0 ORDER BY job_offer.deadline DESC";
 						$result = $conn->query($sql);
                       if ($result->num_rows > 0) {
                             // output data of each row

@@ -165,7 +165,7 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,255,4,0.31416316526
                           <td>Employer</td>
                       </tr>
                       <?php 
-                      	$sql = "SELECT * FROM job_offer,selected WHERE job_offer.job_id=selected.job_id AND selected.f_username='$username' AND selected.valid=1 ORDER BY job_offer.timestamp DESC";
+                      	$sql = "SELECT * FROM job_offer,selected WHERE job_offer.job_id=selected.job_id AND selected.f_username='$username' AND selected.valid=1 ORDER BY job_offer.deadline DESC";
 						$result = $conn->query($sql);
                       if ($result->num_rows > 0) {
                             // output data of each row
@@ -173,7 +173,7 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,255,4,0.31416316526
                                 $job_id=$row["job_id"];
                                 $title=$row["title"];
                                 $e_username=$row["e_username"];
-                                $timestamp=$row["timestamp"];
+                                $deadline=$row["deadline"];
 
                                 echo '
                                 <form action="employerProfile.php" method="post">
@@ -185,7 +185,7 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,255,4,0.31416316526
                                     <form action="employerProfile.php" method="post">
                                     <input type="hidden" name="e_user" value="'.$e_username.'">
                                     <td><input type="submit" class="btn btn-link btn-lg" value="'.$e_username.'"></td>
-                                    <td>'.$timestamp.'</td>
+                                    <td>'.$deadline.'</td>
                                     </tr>
                                 </form>
                                 ';
@@ -209,7 +209,7 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,255,4,0.31416316526
                           <td>Employer</td>
                       </tr>
                       <?php 
-                      	$sql = "SELECT * FROM job_offer,selected WHERE job_offer.job_id=selected.job_id AND selected.f_username='$username' AND selected.valid=0 ORDER BY job_offer.timestamp DESC";
+                      	$sql = "SELECT * FROM job_offer,selected WHERE job_offer.job_id=selected.job_id AND selected.f_username='$username' AND selected.valid=0 ORDER BY job_offer.deadline DESC";
 						$result = $conn->query($sql);
                       if ($result->num_rows > 0) {
                             // output data of each row
